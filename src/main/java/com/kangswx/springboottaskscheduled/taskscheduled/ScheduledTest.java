@@ -1,11 +1,20 @@
 package com.kangswx.springboottaskscheduled.taskscheduled;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-//@Component
+@Component
 public class ScheduledTest {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(ScheduledTest.class);
+
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
      * 静态定时任务
@@ -18,7 +27,8 @@ public class ScheduledTest {
      */
     @Scheduled(cron = "0/5 * * * * ?")
     public void testTask(){
-        System.out.println("执行静态定时任务时间: " + LocalDateTime.now());
+        logger.info("执行静态定时任务时间: " + sdf.format(new Date())
+                +", 线程名称"+Thread.currentThread().getName());
     }
 
 }
