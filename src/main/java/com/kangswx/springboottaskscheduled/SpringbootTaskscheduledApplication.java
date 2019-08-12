@@ -7,9 +7,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
-@EnableAsync
-@MapperScan(basePackages ="com.kangswx.springboottaskscheduled.mapper")
+@EnableScheduling    //定时任务注解
+@EnableAsync         //异步任务注解
+@MapperScan(basePackages ="com.kangswx.springboottaskscheduled.mapper")  //Mybatis的Mapper接口扫描注解
 public class SpringbootTaskscheduledApplication {
 
     public static void main(String[] args) {
